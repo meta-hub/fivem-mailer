@@ -1,6 +1,5 @@
 /*
   Credits to https://smtpjs.com/v3/smtp.js for the Email class.
-  Wrapped and converted by _meta
 */
 
 const __VERSION = '1.0.00'
