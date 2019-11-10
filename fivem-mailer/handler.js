@@ -2,10 +2,9 @@
   Credits to https://smtpjs.com/v3/smtp.js for the Email class.
 */
 
-const __VERSION = '1.0.00'
-const token = "replace-this-with-your-token";
-
-const name = GetCurrentResourceName();
+const SecureToken = "replace-with-your-token"
+const Mailer = "replace-with-your-sender-email"
+const ResName = GetCurrentResourceName()
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const Email = { 
@@ -34,21 +33,28 @@ const Email = {
   } 
 };
 
-function send(t,f,s,b) {
-  console.log(t)
+function send(to,subject,body) {
   Email.send({
-      SecureToken: token,
-      To : t,
-      From : f,
-      Subject : s,
-      Body : b
+      SecureToken: SecureToken,
+      To : to,
+      From : Mailer,
+      Subject : subject,
+      Body : body
   }).then(
     function(message) {
       var res = (message == "OK") ? "Success." : "Failure";
-      console.log("["+name+"] Result : " + res );
+      console.log("["+ResName+"] Result : " + res );
     }
   );
 };
 
 exports('send', send);
 onNet('fivem-mailer:send', send);
+
+
+/* Test/Example Function
+  var testTarget  = "replace-with-your-target-email"
+  var testSubject = "replace-with-your-subject"
+  var testContent = "replace-with-your-content (this can be a raw html string, EG: <div style='color:white;text-align:center;border-radius:10px;background-color:rgba(25,25,25,1.0)'>Test</div>)"
+  send(testTarget,testSubject,testContent)
+*/
