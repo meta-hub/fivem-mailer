@@ -2,8 +2,8 @@
   Credits to https://smtpjs.com/v3/smtp.js for the Email class.
 */
 
-const SecureToken = "replace-with-your-token"
-const Mailer = "replace-with-your-sender-email"
+const SecureToken = "enter-your-security-token-here"
+const Mailer = "enter-your-sender-email-here"
 const ResName = GetCurrentResourceName()
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -48,13 +48,10 @@ function send(to,subject,body) {
   );
 };
 
-exports('send', send);
-onNet('fivem-mailer:send', send);
 
-
-/* Test/Example Function
-  var testTarget  = "replace-with-your-target-email"
-  var testSubject = "replace-with-your-subject"
-  var testContent = "replace-with-your-content (this can be a raw html string, EG: <div style='color:white;text-align:center;border-radius:10px;background-color:rgba(25,25,25,1.0)'>Test</div>)"
+/* Test/Example Function 
+  var testTarget  = 'targetEmail@provider.com'
+  var testSubject = 'This is the email subject.'
+  var testContent = '<div style="background-color:rgba(55,55,55,1.0);border-radius:20px;"><h1><center>This is the email content</center><h1><p3><center>You can insert raw html here to style your email contents.</center><p3></div>'
   send(testTarget,testSubject,testContent)
 */
